@@ -44,12 +44,12 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">首页</h3>
+              <h3 class="masthead-brand">乌托邦</h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="https://oscarchanhero.github.io/#">Home</a></li>
                   <li><a href="#" onclick="get_time()">Time</a></li>
-                  <li><a href="#">More</a></li>
+                  <li><a href="#" onclick="get_home()">More</a></li>
                 </ul>
               </nav>
             </div>
@@ -103,6 +103,11 @@
         $(".home").addClass("hide");
 	$(".time").removeClass("hide");
         setInterval(time,1000);
+      }
+
+	function get_home(){
+        $(".time").addClass("hide");
+	$(".home").removeClass("hide");
       }
       
     </script>
