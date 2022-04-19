@@ -49,7 +49,7 @@
                 <ul class="nav masthead-nav">
                   <li class="active homel"><a href="#" onclick="get_home()">Home</a></li>
                   <li class="timel"><a href="#" onclick="get_time()">Time</a></li>
-                  <li ><a href="#">More</a></li>
+                  <li ><a href="#" onclick="get_more()">More</a></li>
                 </ul>
               </nav>
             </div>
@@ -112,6 +112,10 @@
 	$(".home").removeClass("hide");
 	$(".homel").addClass("active");
 	$(".timel").removeClass("active");
+      }
+	    
+	function get_more(){
+        alert("让子弹飞一会");
       }
       
     </script>
