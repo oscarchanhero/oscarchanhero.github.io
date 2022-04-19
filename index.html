@@ -47,9 +47,9 @@
               <h3 class="masthead-brand">乌托邦</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="https://oscarchanhero.github.io/#">Home</a></li>
-                  <li><a href="#" onclick="get_time()">Time</a></li>
-                  <li><a href="#" onclick="get_home()">More</a></li>
+                  <li class="active homel"><a href="#" onclick="get_home()">Home</a></li>
+                  <li class="timel"><a href="#" onclick="get_time()">Time</a></li>
+                  <li ><a href="#">More</a></li>
                 </ul>
               </nav>
             </div>
@@ -102,12 +102,16 @@
       function get_time(){
         $(".home").addClass("hide");
 	$(".time").removeClass("hide");
+	$(".timel").addClass("active");
+	$(".homel").removeClass("active");
         setInterval(time,1000);
       }
 
 	function get_home(){
         $(".time").addClass("hide");
 	$(".home").removeClass("hide");
+	$(".homel").addClass("active");
+	$(".timel").removeClass("active");
       }
       
     </script>
