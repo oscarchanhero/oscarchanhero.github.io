@@ -47,9 +47,9 @@
               <h3 class="masthead-brand">首页</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li class="active"><a href="https://oscarchanhero.github.io/#">Home</a></li>
+                  <li><a href="#" onclick="get_time()">Time</a></li>
+                  <li><a href="#">More</a></li>
                 </ul>
               </nav>
             </div>
@@ -64,6 +64,7 @@
           </div>
           <div class="inner cover time hide">
             <h1 class="cover-heading timebox"></h1>
+		  <p class="lead week"></p>
           </div>
 
           <div class="mastfoot">
@@ -87,13 +88,15 @@
       function time(){
         var time=new Date();
         var Y=time.getFullYear();
-        var M=time.getMonth();
-        var D=time.getDate();
-        var H=time.getHours(); //获取当前小时数(0-23)
-        var m=time.getMinutes(); //获取当前分钟数(0-59)
-        var s=time.getSeconds(); //获取当前秒数(0-59)
-      
+        var M=time.getMonth(); M<10?M="0"+M:M=M;
+        var D=time.getDate(); D<10?D="0"+D:D=D;
+        var H=time.getHours(); H<10?H="0"+H:H=H;
+        var m=time.getMinutes();m<10?m="0"+m:m=m;
+        var s=time.getSeconds(); s<10?s="0"+s:s=s;
+        var d=time.getDay();
+        var Week = ['日','一','二','三','四','五','六']; 
         $(".timebox").html(Y+"-"+M+"-"+D+" "+H+":"+m+":"+s);
+        $(".week").html("星期"+Week[d]);
       }
 
       function get_time(){
