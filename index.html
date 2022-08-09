@@ -49,6 +49,7 @@
                 <ul class="nav masthead-nav">
                   <li class="active homel"><a href="#" onclick="get_home()">Home</a></li>
                   <li class="timel"><a href="#" onclick="get_time()">Time</a></li>
+                  <li class="jsql"><a href="#" onclick="cal_height()">calculate</a></li>
                   <li ><a href="#" onclick="get_more()">More</a></li>
                 </ul>
               </nav>
@@ -64,7 +65,23 @@
           </div>
           <div class="inner cover time hide">
             <h1 class="cover-heading timebox"></h1>
-		  <p class="lead week"></p>
+		    <p class="lead week"></p>
+          </div>
+          <div class="inner cover jsq hide">
+            <h1 class="cover-heading timebox">孩子身高计算器</h1>
+		    <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">父亲身高：</label>
+                  <input type="number" step="0.1" class="form-control"  id="father" placeholder="输入父亲身高(cm)">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">母亲身高：</label>
+                    <input type="number" step="0.1" class="form-control"  id="mother" placeholder="输入母亲身高(cm)">
+                  </div>
+                <button type="submit" class="btn btn-default" onchange="cal()">计算</button>
+              </form>
+              <p class="lead nan"></p>
+              <p class="lead nv"></p>
           </div>
 
           <div class="mastfoot">
@@ -100,18 +117,43 @@
       }
 
       function get_time(){
+        $(".jsq").addClass("hide");
+        $(".jsql").removeClass("active");
         $(".home").addClass("hide");
-	$(".time").removeClass("hide");
-	$(".timel").addClass("active");
-	$(".homel").removeClass("active");
+        $(".time").removeClass("hide");
+        $(".timel").addClass("active");
+        $(".homel").removeClass("active");
         setInterval(time,1000);
       }
 
+      function cal_height(){
+        $(".home").addClass("hide");
+        $(".homel").removeClass("active");
+        $(".timel").addClass("hide");
+        $(".time").removeClass("active");
+       
+        $(".jsq").addClass("active");
+        $(".jsql").removeClass("hide");
+      }
+
+      function cal(){
+            var mother = parseFloat($("#mother").val());
+            var father = parseFloat($("#father").val());
+            var pj = (mother+father)/2;
+            console.log(pj);
+            var nan = pj*0.78+45.99;
+            var nv =pj*0.75+37.85
+            $('.nan').html("男孩身高为："+nan+"cm")
+            $('.nv').html("女孩身高为："+nv+"cm")
+      }
+
 	function get_home(){
+        $(".jsq").addClass("hide");
+        $(".jsql").removeClass("active");
         $(".time").addClass("hide");
-	$(".home").removeClass("hide");
-	$(".homel").addClass("active");
-	$(".timel").removeClass("active");
+        $(".home").removeClass("hide");
+        $(".homel").addClass("active");
+        $(".timel").removeClass("active");
       }
 	    
 	function get_more(){
